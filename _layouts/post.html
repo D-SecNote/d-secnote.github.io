@@ -1,0 +1,126 @@
+---
+layout: default
+body_class: blog-details-page
+---
+
+<!-- Page Title -->
+<div class="page-title light-background">
+  <div class="container d-lg-flex justify-content-between align-items-center">
+    <h1 class="mb-2 mb-lg-0"></h1>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        {% if page.categories and page.categories.size > 0 %}
+        <li><a href="{{ '/' | append: page.categories[0] | append: '/' | relative_url }}">{{ page.categories[0] }}</a>
+        </li>
+        {% endif %}
+        {% if page.categories and page.categories.size > 1 %}
+        <li><a
+            href="{{ '/' | append: page.categories[0] | append: '/' | append: page.categories[1] | append: '/' | relative_url }}">{{
+            page.categories[1] }}</a></li>
+        {% endif %}
+        <li class="current">{{ page.title }}</li>
+      </ol>
+    </nav>
+  </div>
+</div><!-- End Page Title -->
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-8">
+
+      <!-- Blog Details Section -->
+      <section id="blog-details" class="blog-details section">
+        <div class="container">
+
+          <article class="article">
+
+            {% if page.image %}
+            <div class="post-img">
+              {% if page.image.path %}
+              <img src="{{ page.image.path | relative_url }}" alt="{{ page.image.alt | default: page.title }}"
+                class="img-fluid">
+              {% else %}
+              <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="img-fluid">
+              {% endif %}
+            </div>
+            {% endif %}
+
+            <h2 class="title">{{ page.title }}</h2>
+
+            <div class="meta-top">
+              <ul>
+                {% if page.author %}
+                <li class="d-flex align-items-center">
+                  <i class="bi bi-person"></i>
+                  <span>{{ page.author }}</span>
+                </li>
+                {% endif %}
+
+                {% if page.date %}
+                <li class="d-flex align-items-center">
+                  <i class="bi bi-clock"></i>
+                  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+                </li>
+                {% endif %}
+
+                {% if page.categories and page.categories.size > 0 %}
+                <li class="d-flex align-items-center">
+                  <i class="bi bi-folder"></i>
+                  <span>{{ page.categories | join: ", " }}</span>
+                </li>
+                {% endif %}
+              </ul>
+            </div><!-- End meta top -->
+
+            <div class="content markdown-body">
+                {% capture _content %}{{ content }}{% endcapture %}
+                {% include refactor-content.html content=_content %}
+            </div><!-- End post content -->
+
+            {% if page.categories or page.tags %}
+            <div class="meta-bottom">
+              {% if page.categories %}
+              <i class="bi bi-folder"></i>
+              <ul class="cats">
+                {% if page.categories.size > 0 %}
+                <li>
+                  <a href="{{ '/' | append: page.categories[0] | append: '/' | relative_url }}">
+                    {{ page.categories[0] }}
+                  </a>
+                </li>
+                {% endif %}
+                {% if page.categories.size > 1 %}
+                <li>
+                  <a
+                    href="{{ '/' | append: page.categories[0] | append: '/' | append: page.categories[1] | append: '/' | relative_url }}">
+                    {{ page.categories[1] }}
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+              {% endif %}
+
+              {% if page.tags %}
+              <i class="bi bi-tags"></i>
+              <ul class="tags">
+                {% for tag in page.tags %}
+                <li><a href="#">{{ tag }}</a></li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div><!-- End meta bottom -->
+            {% endif %}
+
+          </article>
+
+        </div>
+      </section><!-- /Blog Details Section -->
+
+    </div>
+
+    {% include sidebar.html %}
+
+  </div>
+</div>

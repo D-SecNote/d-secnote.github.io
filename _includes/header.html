@@ -1,0 +1,68 @@
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+    <a href="{{ '/' | relative_url }}" class="logo d-flex align-items-center me-auto">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="{{ '/assets/img/logo.png' | relative_url }}" alt=""> -->
+      <h1 class="sitename">{{ site.title }}</h1>
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="{{ '/#hero' | relative_url }}" class="active">Home</a></li>
+        {% assign top_categories = "" | split: "" %}
+        {% for post in site.posts %}
+          {% assign cats = post.categories %}
+          {% if cats and cats.size > 0 %}
+            {% assign top = cats[0] %}
+            {% unless top_categories contains top %}
+              {% assign top_categories = top_categories | push: top %}
+            {% endunless %}
+          {% endif %}
+        {% endfor %}
+
+        {% for top in top_categories %}
+          {% assign sub_categories = "" | split: "" %}
+
+          {% for post in site.posts %}
+            {% assign cats = post.categories %}
+            {% if cats and cats.size > 0 and cats[0] == top %}
+              {% if cats.size > 1 %}
+                {% assign sub = cats[1] %}
+                {% unless sub_categories contains sub %}
+                  {% assign sub_categories = sub_categories | push: sub %}
+                {% endunless %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if sub_categories.size > 0 %}
+            <li class="dropdown">
+              <a href="{{ '/' | append: top | append: '/' | relative_url }}">
+                <span>{{ top }}</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i>
+              </a>
+              <ul>
+                {% for sub in sub_categories %}
+                  <li>
+                    <a href="{{ '/' | append: top | append: '/' | append: sub | append: '/' | relative_url }}">
+                      {{ sub }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li>
+              <a href="{{ '/' | append: top | append: '/' | relative_url }}">{{ top }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+      </ul>
+
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+  </div>
+</header>

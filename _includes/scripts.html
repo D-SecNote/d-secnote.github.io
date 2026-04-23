@@ -1,0 +1,70 @@
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+  <i class="bi bi-arrow-up-short"></i>
+</a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/php-email-form/validate.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/aos/aos.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/glightbox/js/glightbox.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/isotope-layout/isotope.pkgd.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/purecounter/purecounter_vanilla.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/waypoints/noframework.waypoints.js' | relative_url }}"></script>
+<script src="{{ '/assets/vendor/swiper/swiper-bundle.min.js' | relative_url }}"></script>
+
+<!-- Main JS File -->
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+<!-- Chirpy Bundled JS -->
+<script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/dist/commons.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/dist/misc.min.js' | relative_url }}"></script>
+
+{% if page.layout == 'post' %}
+<script src="{{ '/assets/js/dist/post.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.layout == 'category' or page.layout == 'categories' %}
+<script src="{{ '/assets/js/dist/categories.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.layout == 'page' %}
+<script src="{{ '/assets/js/dist/page.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.url == '/' or page.layout == 'home' %}
+<script src="{{ '/assets/js/dist/home.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% if page.layout == 'post' and page.math %}
+<script src="{{ '/assets/js/mathjax.js' | relative_url }}"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{% endif %}
+
+{% if page.layout == 'post' and page.mermaid %}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('pre > code.language-mermaid').forEach(function (code) {
+      const pre = code.parentElement;
+      const div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = code.textContent;
+      pre.replaceWith(div);
+    });
+
+    mermaid.initialize({
+      startOnLoad: false
+    });
+
+    mermaid.run({
+      querySelector: '.mermaid'
+    });
+  });
+</script>
+{% endif %}

@@ -1,0 +1,215 @@
+---
+layout: default
+title: Home
+body_class: index-page
+---
+
+<!-- Hero Section -->
+<section id="hero" class="hero section dark-background">
+
+  <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+    <div class="carousel-item active">
+      <img src="assets/img/hero-carousel/hero-carousel-1.png" alt="">
+      <div class="carousel-container">
+      </div>
+    </div><!-- End Carousel Item -->
+
+    <div class="carousel-item">
+      <img src="assets/img/hero-carousel/hero-carousel-2.png" alt="">
+      <div class="carousel-container">
+      </div>
+    </div><!-- End Carousel Item -->
+
+    <div class="carousel-item">
+      <img src="assets/img/hero-carousel/hero-carousel-3.png" alt="">
+      <div class="carousel-container">
+      </div>
+    </div><!-- End Carousel Item -->
+
+    <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+    </a>
+
+    <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+    </a>
+
+    <ol class="carousel-indicators"></ol>
+
+  </div>
+
+</section><!-- /Hero Section -->
+
+<!-- About Section -->
+<section id="about" class="about section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>About</h2>
+    <p>About Blog<br></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+        <p>
+          이 블로그는 컴퓨터 분야에서의 학습 과정과 분석 경험을 기록하기 위한 공간입니다.  
+        지금까지 공부한 것들 또한 공부해 나갈 것들을 기록하기 위한 공간입니다.
+        </p>
+        <ul>
+          <li><i class="bi bi-check2-circle"></i> <span>분석 과정과 근거를 중심으로 기록합니다</span>
+          </li>
+          <li><i class="bi bi-check2-circle"></i> <span>재현 가능한 형태로 실습 내용을 정리합니다</span></li>
+          <li><i class="bi bi-check2-circle"></i> <span>단순 결과보다 이해 과정을 우선합니다</span></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <p>모든 글은 개념 정리, 학습 기록, 분석, 실습 등의 형태로 구성되어 있으며,  
+        단순 결과보다 과정과 근거를 중심으로 정리합니다.  
+        재현 가능한 분석과 실질적인 이해를 목표로 합니다 </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /About Section -->
+
+<!-- Clients Section -->
+<section id="clients" class="clients section light-background">
+
+  <div class="container" data-aos="fade-up">
+
+    <div class="row gy-4 text-center">
+
+  <div class="col-xl-2 col-md-3 col-6 client-logo">
+    {% assign count = site.posts | where: "post_type", "concepts" | size %}
+    <div class="highlight-item">
+      <h3>{{ count }}</h3>
+      <span>Concepts</span>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-md-3 col-6 client-logo">
+    {% assign count = site.posts | where: "post_type", "study" | size %}
+    <div class="highlight-item">
+      <h3>{{ count }}</h3>
+      <span>Study</span>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-md-3 col-6 client-logo">
+    {% assign count = site.posts | where: "post_type", "analysis" | size %}
+    <div class="highlight-item">
+      <h3>{{ count }}</h3>
+      <span>Analysis</span>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-md-3 col-6 client-logo">
+    {% assign count = site.posts | where: "post_type", "labs" | size %}
+    <div class="highlight-item">
+      <h3>{{ count }}</h3>
+      <span>Labs</span>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-md-3 col-6 client-logo">
+    {% assign count = site.posts | where: "post_type", "reviews" | size %}
+    <div class="highlight-item">
+      <h3>{{ count }}</h3>
+      <span>Reviews</span>
+    </div>
+  </div>
+
+  <div class="col-xl-2 col-md-3 col-6 client-logo">
+    {% assign count = site.posts | where: "post_type", "notes" | size %}
+    <div class="highlight-item">
+      <h3>{{ count }}</h3>
+      <span>Notes</span>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+
+</section><!-- /Clients Section -->
+
+<!-- Services Section -->
+<section id="services" class="services section">
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item d-flex position-relative h-100">
+          <i class="bi bi-book icon flex-shrink-0"></i>
+          <div>
+            <h4 class="title">Concepts</a></h4>
+            <p class="description">기초 개념과 핵심 이론을 정리합니다. 복잡한 내용을 단순하게 이해하는 것을 목표로 합니다.</p>
+          </div>
+        </div>
+      </div><!-- End Service Item -->
+
+      <div class="col-md-6">
+        <div class="service-item d-flex position-relative h-100">
+          <i class="bi bi-journal-text icon flex-shrink-0"></i>
+          <div>
+            <h4 class="title">Study</h4>
+            <p class="description">학습 과정과 정리 내용을 기록합니다. 시행착오와 이해 과정을 그대로 남깁니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="service-item d-flex position-relative h-100">
+          <i class="bi bi-search icon flex-shrink-0"></i>
+          <div>
+            <h4 class="title">Analysis</h4>
+            <p class="description">분석 과정과 근거를 중심으로 내용을 정리하며, 결과보다 흐름을 중요하게 다룹니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="service-item d-flex position-relative h-100">
+          <i class="bi bi-terminal icon flex-shrink-0"></i>
+          <div>
+            <h4 class="title">Labs</h4>
+            <p class="description">실습 환경에서 직접 수행한 테스트와 실험을 기록하며, 재현 가능한 형태로 구성합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="service-item d-flex position-relative h-100">
+          <i class="bi bi-clipboard-data icon flex-shrink-0"></i>
+          <div>
+            <h4 class="title">Reviews</h4>
+            <p class="description">학습 내용과 분석 결과를 다시 정리하고 핵심만 구조화합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="service-item d-flex position-relative h-100">
+          <i class="bi bi-pencil icon flex-shrink-0"></i>
+          <div>
+            <h4 class="title">Notes</h4>
+            <p class="description">짧은 기록이나 참고할 내용을 빠르게 정리하고 실무에 바로 활용할 수 있도록 남깁니다.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section><!-- /Services Section -->
