@@ -10,7 +10,7 @@ pin: true
 math: true
 mermaid: true
 image:
-  path: /thumbnails/2026-04-26-Walking An Application.png
+  path: /assets/thumbnails/2026-04-26-Walking An Application.png
   alt: image
 ---
 
