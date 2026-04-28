@@ -13,22 +13,20 @@ image:
   path: /assets/thumbnails/2026-04-26-Walking An Application.png
   alt: image
 ---
-
-## Headings
-
-<!-- markdownlint-capture -->
-<!-- markdownlint-disable -->
-# H1 — heading
+# 웹 애플리케이션 훑어보기
+{: .mt-4 .mb-0 }
+웹 애플리케이션 훑어보기
+## H1 — heading
+{: .mt-4 .mb-0 }
+침투 테스트 수행자로서, 웹사이트나 웹 애플리케이션을 검토할 때의 역할
+## H2 — heading
 {: .mt-4 .mb-0 }
 
-## H2 — heading
-{: data-toc-skip='' .mt-4 .mb-0 }
-
 ### H3 — heading
-{: data-toc-skip='' .mt-4 .mb-0 }
+{: .mt-4 .mb-0 }
 
 #### H4 — heading
-{: data-toc-skip='' .mt-4 }
+{: .mt-4 .mb-0 }
 <!-- markdownlint-restore -->
 
 ## Paragraph
